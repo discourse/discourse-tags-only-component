@@ -33,7 +33,7 @@ RSpec.describe "Tags Only - hiding categories" do
     end
   end
 
-  context "on the categories page (exempted)" do
+  context "when on the categories page (exempted)" do
     it "still shows category badges" do
       visit("/categories")
 
