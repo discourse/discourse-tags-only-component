@@ -1,5 +1,3 @@
 en:
   theme_metadata:
     description: Hide categories for a tags-first approach to using Discourse
-    settings:
-      example_setting: A description of a setting.

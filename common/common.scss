@@ -1,0 +1,88 @@
+@use "lib/viewport";
+
+body:not(.admin-interface, .categories-list) {
+  // Admins still might need to see categories exist for various settings.
+  // Categories list inluded because if you're viewing /categories
+  // you are likely trying to find them intentionally.
+  .badge-category__wrapper {
+    display: none;
+  }
+}
+
+// Categories required for creating chat channels, no default set
+.chat-modal-create-channel .chat-modal-create-channel__control {
+  .badge-category__wrapper {
+    display: flex;
+  }
+}
+
+// topic lists
+.category-breadcrumb__category-selector {
+  display: none;
+}
+
+// navigation menu
+[data-section-name="categories"] {
+  display: none;
+}
+
+// search
+.category.search-menu-assistant-item {
+  display: none;
+}
+
+.advanced-search-category {
+  display: none;
+}
+
+.search-results {
+  .category-heading,
+  .category-items {
+    display: none;
+  }
+}
+
+// topic
+.edit-topic-title {
+  .edit-category__wrapper {
+    display: none;
+  }
+}
+
+// user profile
+.top-section.top-categories-section {
+  display: none;
+}
+
+.stream-post-category,
+.user-stream .item .post-list-item__metadata span + span::before,
+.user-stream .item .user-stream-item__metadata span + span::before,
+.user-stream .user-stream-item .post-list-item__metadata span + span::before,
+.user-stream .user-stream-item .user-stream-item__metadata span + span::before {
+  display: none;
+}
+
+// user preferences
+.user-preferences__tracking-categories-tags-wrapper {
+  grid-template-columns: auto;
+}
+
+.control-group.category-notifications {
+  display: none;
+}
+
+// composer
+#reply-control .with-tags.with-category .category-input {
+  display: none;
+}
+
+#reply-control .with-tags .title-input {
+  flex: 1 1 50%;
+}
+
+@include viewport.until(sm) {
+  #reply-control .tags-input {
+    width: 100%;
+    max-width: unset !important; // override very specific selector
+  }
+}
