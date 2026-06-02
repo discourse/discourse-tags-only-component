@@ -67,10 +67,7 @@ RSpec.describe "Tags Only - hiding categories" do
     it "hides the category input in favor of tags" do
       visit("/new-topic")
 
-      expect(page).to have_css(
-        "#reply-control .reply-area.with-tags.with-category",
-        wait: 5,
-      )
+      expect(page).to have_css("#reply-control .reply-area.with-tags.with-category", wait: 5)
       # The category chooser is rendered but hidden.
       expect(page).to have_css(".category-input", visible: :all)
       expect(page).to have_no_css(".category-input")
