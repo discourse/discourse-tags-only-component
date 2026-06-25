@@ -11,5 +11,11 @@
 RSpec.describe "Core features" do
   before { upload_theme_or_component }
 
-  it_behaves_like "having working core features"
+  # The "topics:read" examples include "lists topics for a category", which
+  # navigates by clicking a category in the sidebar categories section. This
+  # component deliberately hides that section (`[data-section-name="categories"]
+  # { display: none; }`), so Capybara can't click the now-invisible link. The
+  # skip keyword is group-level granularity, so this also opts out of the
+  # sibling "lists latest topics"/"displays a specific topic" reads.
+  it_behaves_like "having working core features", skip_examples: %i[topics:read]
 end
